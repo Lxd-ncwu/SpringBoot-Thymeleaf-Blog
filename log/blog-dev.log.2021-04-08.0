@@ -1,0 +1,1193 @@
+2021-04-08 16:46:26.892  INFO 5664 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 5664 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-08 16:46:26.892 DEBUG 5664 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-08 16:46:26.892  INFO 5664 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-08 16:46:26.928  INFO 5664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-08 16:46:26.928  INFO 5664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-08 16:46:28.005  INFO 5664 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-08 16:46:28.021  INFO 5664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-08 16:46:28.021  INFO 5664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-08 16:46:28.067  INFO 5664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-08 16:46:28.067  INFO 5664 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1139 ms
+2021-04-08 16:46:28.449  INFO 5664 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 16:46:28.512  INFO 5664 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-08 16:46:29.229  INFO 5664 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-08 16:46:29.253  INFO 5664 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-08 16:46:29.269  INFO 5664 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 2.826 seconds (JVM running for 3.533)
+2021-04-08 16:46:39.182  INFO 5664 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-08 16:46:39.182  INFO 5664 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-08 16:46:39.183  INFO 5664 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-08 16:46:47.836  INFO 5664 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-08 16:46:48.432  INFO 5664 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-08 16:46:48.437 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-08 16:46:48.452 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-08 16:46:48.556 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-08 16:46:51.265 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 16:46:51.265 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 16:46:51.343 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 16:46:51.346 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 16:46:51.346 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 16:46:51.361 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 16:46:51.369 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 16:46:51.369 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 16:46:51.370 DEBUG 5664 --- [http-nio-8080-exec-1] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 16:47:14.745 DEBUG 5664 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:14.746 DEBUG 5664 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:47:14.747 DEBUG 5664 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:17.050 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:17.050 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:47:17.051 DEBUG 5664 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:17.051 DEBUG 5664 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:47:17.052 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:17.052 DEBUG 5664 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:23.033 DEBUG 5664 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:23.033 DEBUG 5664 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:47:23.034 DEBUG 5664 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:23.034 DEBUG 5664 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:23.035 DEBUG 5664 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:47:23.035 DEBUG 5664 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:47:23.035 DEBUG 5664 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:23.036 DEBUG 5664 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:23.036 DEBUG 5664 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:23.041 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:47:23.042 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %123%(String)
+2021-04-08 16:47:23.043 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:23.044 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:47:23.044 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String), 10(Integer)
+2021-04-08 16:47:23.046 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.011 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:47:24.011 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:47:24.012 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.012 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.013 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:24.013 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:24.013 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:47:24.013 DEBUG 5664 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:47:24.013 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.013 DEBUG 5664 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:47:24.014 DEBUG 5664 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String), 10(Integer)
+2021-04-08 16:47:24.014 DEBUG 5664 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:24.014 DEBUG 5664 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String), 10(Integer)
+2021-04-08 16:47:24.014 DEBUG 5664 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.014 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:24.015 DEBUG 5664 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:47:24.015 DEBUG 5664 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String), 10(Integer)
+2021-04-08 16:47:24.016 DEBUG 5664 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.016 DEBUG 5664 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.016 DEBUG 5664 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.017 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:47:24.017 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.017 DEBUG 5664 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:24.018 DEBUG 5664 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.019 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:24.020 DEBUG 5664 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.020 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:47:24.020 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String), 10(Integer)
+2021-04-08 16:47:24.023 DEBUG 5664 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.033 DEBUG 5664 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:47:24.034 DEBUG 5664 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.033 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:47:24.035 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %123%(String)
+2021-04-08 16:47:24.035 DEBUG 5664 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.035 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:24.036 DEBUG 5664 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:47:24.036 DEBUG 5664 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String), 10(Integer)
+2021-04-08 16:47:24.039 DEBUG 5664 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:24.202 DEBUG 5664 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:47:25.522 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.522 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.522 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.522 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.526 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.526 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.526 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.526 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.526 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.526 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.528 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.528 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.621 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.621 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.621 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.621 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.621 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.622 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.632 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.631 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.632 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.632 DEBUG 5664 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.632 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.632 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.632 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.632 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.633 DEBUG 5664 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:47:25.634 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.642 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.642 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.642 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.642 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.642 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.642 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.643 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.643 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.643 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:25.644 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:25.644 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:25.645 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.660 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.661 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.662 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.663 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.661 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.664 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.666 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.667 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.668 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.668 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.669 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.669 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.670 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.670 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.671 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.674 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.675 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.676 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.677 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.678 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.677 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.678 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.679 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.679 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.679 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.679 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.680 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.681 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.681 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.682 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.682 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.683 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.685 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.690 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.690 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.690 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.690 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.690 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.690 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.691 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.691 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.691 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.696 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.696 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.696 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.696 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.697 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.697 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.698 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.698 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.700 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.706 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.706 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.707 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.707 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.708 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.708 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.710 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.710 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.711 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.714 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.714 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.714 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.714 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.715 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.715 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.721 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.722 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.723 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.723 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.723 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.724 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.724 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.724 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.725 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.728 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.729 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.730 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.732 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.733 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.734 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.737 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.737 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.738 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.741 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.741 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.742 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.742 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.743 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.744 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.744 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.744 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.745 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:35.749 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:35.749 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:35.750 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.062 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.063 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.064 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.065 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.065 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.065 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.065 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.066 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.066 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.067 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.067 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.068 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.068 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.068 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.068 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.069 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.069 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.069 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.073 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.074 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.075 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.075 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.075 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.076 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.078 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.078 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.080 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.082 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.082 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.083 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.083 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.084 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.085 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.086 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.086 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.087 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.088 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.089 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.090 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.092 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.092 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.093 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.096 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.096 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.097 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.099 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.100 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.101 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.105 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.105 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.105 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.105 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.105 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.105 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.108 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.108 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.109 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.110 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.110 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.110 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.111 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.111 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.112 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.113 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.113 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.114 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.116 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.116 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.117 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.117 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.119 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.119 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.121 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.121 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.122 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.125 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.126 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.127 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.127 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.128 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.129 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.132 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.133 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.133 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.133 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.134 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.134 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.135 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.136 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.136 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.137 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.137 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.137 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.137 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.137 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.139 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.143 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.143 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.144 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.147 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.148 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.149 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.151 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.151 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.151 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.151 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.152 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.152 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.155 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.155 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.155 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.156 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.156 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.157 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.158 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.159 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.159 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.160 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.161 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.162 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.165 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.166 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.166 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.166 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.167 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.167 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.170 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.170 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.171 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.172 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.172 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.172 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.173 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.173 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.173 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.173 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.173 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.173 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.178 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.178 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.179 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.179 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.179 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.179 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.184 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.185 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.185 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.185 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.185 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.185 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.186 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.186 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.186 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.186 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.186 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.187 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.192 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.193 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.194 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.194 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.194 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.195 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.199 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.200 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.201 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.202 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.202 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.202 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.203 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.203 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.204 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.205 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.205 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.205 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.205 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.205 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.205 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.205 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.206 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.206 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.215 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.215 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.215 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.215 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.216 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.216 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.216 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.217 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.218 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.219 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.219 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.220 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.705 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.705 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.706 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.706 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.706 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.707 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.708 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.709 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.710 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.710 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.710 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.710 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.710 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.711 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.711 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.711 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.712 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.712 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.715 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.715 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.716 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.718 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.719 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.719 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.720 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.720 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.720 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.720 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.721 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.721 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.724 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.724 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.725 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.728 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.728 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.729 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.732 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.732 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.733 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.733 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.734 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.734 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.738 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.738 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.738 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.739 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.739 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.740 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.740 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.740 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.740 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.740 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.741 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.742 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.745 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.745 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.745 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.745 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.746 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.746 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.753 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.754 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.754 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.754 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.754 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.754 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.755 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.755 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.755 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.755 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.756 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.756 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.761 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.761 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.763 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.763 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.764 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.764 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.766 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.767 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.767 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.767 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.768 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.767 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.768 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.768 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.769 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.772 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.773 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.773 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.777 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.777 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.777 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.777 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.777 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.777 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.778 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.778 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.778 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.778 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.778 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.778 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.782 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.782 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.783 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.788 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.788 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.788 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.788 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.788 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.788 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.789 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.789 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.789 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.789 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.789 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.790 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.796 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.796 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.797 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.798 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.798 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.799 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.803 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.803 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.804 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.806 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.806 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.806 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.806 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.807 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.807 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.810 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.810 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.811 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.812 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.812 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.813 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.813 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.813 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.815 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.818 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.819 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.819 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.819 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.819 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.819 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.819 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.820 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.820 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.825 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.825 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.825 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.825 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.825 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.825 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.826 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.826 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.826 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.831 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.831 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.831 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.832 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.832 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.832 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.832 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.832 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.832 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.838 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.838 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.838 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.839 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.839 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.839 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.839 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.839 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.839 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.843 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.844 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.850 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.850 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.851 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.851 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.851 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.851 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.853 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.853 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.854 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.868 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.868 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.868 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.868 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.869 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.869 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.875 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.876 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.877 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.880 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.880 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.881 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.881 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.881 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.881 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.881 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.882 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.883 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.886 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.886 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.887 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.892 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.893 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.893 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.893 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.894 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.894 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.896 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.896 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.896 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.896 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.897 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.897 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.902 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.903 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.904 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.906 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.907 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.908 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.909 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.910 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.910 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.909 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.911 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.912 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.919 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.919 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.919 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.919 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.920 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.920 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.920 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.920 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.921 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.925 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.926 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.926 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.932 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.932 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.933 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.935 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.935 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.935 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.935 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.936 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.936 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.937 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.937 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.938 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.938 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.938 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.938 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.946 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.947 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.948 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.949 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.949 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.950 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.952 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.952 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.952 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.952 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.953 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.966 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.966 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.968 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.968 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.968 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.969 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.968 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.969 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.969 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.969 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.969 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.970 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.971 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.971 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.972 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.969 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.975 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.975 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.979 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.979 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.979 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.979 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.980 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.980 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.980 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.980 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.981 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.984 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.984 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.984 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.984 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.985 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.985 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.986 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.987 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.988 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.988 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.989 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.990 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.990 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.990 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.990 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.990 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.991 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.991 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.994 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.994 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.994 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:36.994 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:36.995 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:36.995 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.000 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.000 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.001 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.010 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.010 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.010 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.010 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.011 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.011 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.011 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.012 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.013 DEBUG 5664 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.018 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.019 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.019 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.019 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.019 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.019 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.020 DEBUG 5664 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.020 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.020 DEBUG 5664 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.024 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.024 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.024 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.025 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.025 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.025 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.026 DEBUG 5664 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.026 DEBUG 5664 --- [http-nio-8080-exec-3] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.026 DEBUG 5664 --- [http-nio-8080-exec-8] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.029 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.029 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.029 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.029 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.030 DEBUG 5664 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.030 DEBUG 5664 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:37.032 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.type_id = ? AND b.title LIKE ?
+2021-04-08 16:47:37.033 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:47:37.033 DEBUG 5664 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:43.494 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 16:47:43.495 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 16:47:43.495 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 16:47:43.496 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 16:47:43.496 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 16:47:43.497 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 16:47:43.499 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 16:47:43.499 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 16:47:43.500 DEBUG 5664 --- [http-nio-8080-exec-8] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 16:47:50.791 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:47:50.791 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:47:50.792 DEBUG 5664 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:47:50.793 DEBUG 5664 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:47:50.793 DEBUG 5664 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:47:50.794 DEBUG 5664 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:48:35.027  INFO 13564 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 13564 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-08 16:48:35.030 DEBUG 13564 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-08 16:48:35.031  INFO 13564 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-08 16:48:35.086  INFO 13564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-08 16:48:35.086  INFO 13564 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-08 16:48:35.999  INFO 13564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-08 16:48:35.999  INFO 13564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-08 16:48:35.999  INFO 13564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-08 16:48:36.063  INFO 13564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-08 16:48:36.063  INFO 13564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 976 ms
+2021-04-08 16:48:36.422  INFO 13564 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 16:48:36.487  INFO 13564 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-08 16:48:36.701  INFO 13564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-08 16:48:36.733  INFO 13564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-08 16:48:36.748  INFO 13564 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 2.082 seconds (JVM running for 2.708)
+2021-04-08 16:48:46.523  INFO 13564 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-08 16:48:46.523  INFO 13564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-08 16:48:46.524  INFO 13564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-08 16:48:53.844  INFO 13564 --- [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-08 16:48:53.949  INFO 13564 --- [http-nio-8080-exec-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-08 16:48:53.954 DEBUG 13564 --- [http-nio-8080-exec-8] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-08 16:48:53.967 DEBUG 13564 --- [http-nio-8080-exec-8] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-08 16:48:53.980 DEBUG 13564 --- [http-nio-8080-exec-8] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-08 16:48:55.220 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 16:48:55.220 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 16:48:55.222 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 16:48:55.224 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 16:48:55.224 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 16:48:55.226 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 16:48:55.234 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 16:48:55.234 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 16:48:55.235 DEBUG 13564 --- [http-nio-8080-exec-7] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 16:48:56.181 DEBUG 13564 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:48:56.181 DEBUG 13564 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:48:56.182 DEBUG 13564 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:48:58.545 DEBUG 13564 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:48:58.545 DEBUG 13564 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:48:58.546 DEBUG 13564 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:00.168 DEBUG 13564 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:00.168 DEBUG 13564 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:49:00.169 DEBUG 13564 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:05.968 DEBUG 13564 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:05.969 DEBUG 13564 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:49:05.970 DEBUG 13564 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:07.592 DEBUG 13564 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:07.592 DEBUG 13564 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:49:07.593 DEBUG 13564 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:08.056 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:08.056 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:49:08.058 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:08.543 DEBUG 13564 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:08.543 DEBUG 13564 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:49:08.544 DEBUG 13564 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:08.768 DEBUG 13564 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:08.768 DEBUG 13564 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:49:08.769 DEBUG 13564 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:08.951 DEBUG 13564 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:08.951 DEBUG 13564 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:49:08.952 DEBUG 13564 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:09.359 DEBUG 13564 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:49:09.359 DEBUG 13564 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:49:09.360 DEBUG 13564 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:09.531 DEBUG 13564 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:09.532 DEBUG 13564 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:09.532 DEBUG 13564 --- [http-nio-8080-exec-6] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:09.533 DEBUG 13564 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:09.533 DEBUG 13564 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:09.534 DEBUG 13564 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:09.711 DEBUG 13564 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:09.711 DEBUG 13564 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:09.712 DEBUG 13564 --- [http-nio-8080-exec-9] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:09.712 DEBUG 13564 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:09.713 DEBUG 13564 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:09.714 DEBUG 13564 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:10.392 DEBUG 13564 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:10.392 DEBUG 13564 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:10.392 DEBUG 13564 --- [http-nio-8080-exec-1] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:10.393 DEBUG 13564 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:10.393 DEBUG 13564 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:10.394 DEBUG 13564 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:10.552 DEBUG 13564 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:10.552 DEBUG 13564 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:10.553 DEBUG 13564 --- [http-nio-8080-exec-5] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:10.553 DEBUG 13564 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:10.553 DEBUG 13564 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:10.554 DEBUG 13564 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:10.720 DEBUG 13564 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:10.720 DEBUG 13564 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:10.720 DEBUG 13564 --- [http-nio-8080-exec-7] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:10.721 DEBUG 13564 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:10.721 DEBUG 13564 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:10.722 DEBUG 13564 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:10.890 DEBUG 13564 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:10.890 DEBUG 13564 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:10.891 DEBUG 13564 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:10.891 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:10.891 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:10.892 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:11.055 DEBUG 13564 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:11.056 DEBUG 13564 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:11.056 DEBUG 13564 --- [http-nio-8080-exec-4] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:11.057 DEBUG 13564 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:11.057 DEBUG 13564 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:11.058 DEBUG 13564 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:15.383 DEBUG 13564 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:15.384 DEBUG 13564 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %%(String)
+2021-04-08 16:49:15.384 DEBUG 13564 --- [http-nio-8080-exec-2] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:15.384 DEBUG 13564 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:15.385 DEBUG 13564 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String), 10(Integer)
+2021-04-08 16:49:15.385 DEBUG 13564 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:49:20.129 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 16:49:20.129 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 16:49:20.130 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 16:49:20.130 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 16:49:20.130 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 16:49:20.131 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 16:49:20.132 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 16:49:20.132 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 16:49:20.132 DEBUG 13564 --- [http-nio-8080-exec-8] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 16:49:36.745 DEBUG 13564 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t WHERE b.type_id = t.id AND b.title LIKE ?
+2021-04-08 16:49:36.745 DEBUG 13564 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : ==> Parameters: %123%(String)
+2021-04-08 16:49:36.746 DEBUG 13564 --- [http-nio-8080-exec-10] c.l.d.B.findByTitleAndTypeId_COUNT       : <==      Total: 1
+2021-04-08 16:49:36.747 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ? LIMIT ?
+2021-04-08 16:49:36.747 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String), 10(Integer)
+2021-04-08 16:49:36.748 DEBUG 13564 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:52:55.332  INFO 6308 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 6308 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-08 16:52:55.342 DEBUG 6308 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-08 16:52:55.342  INFO 6308 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-08 16:52:55.389  INFO 6308 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-08 16:52:55.389  INFO 6308 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-08 16:52:56.222  INFO 6308 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-08 16:52:56.222  INFO 6308 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-08 16:52:56.222  INFO 6308 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-08 16:52:56.284  INFO 6308 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-08 16:52:56.284  INFO 6308 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 895 ms
+2021-04-08 16:52:56.613  INFO 6308 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 16:52:56.672  INFO 6308 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-08 16:52:56.883  INFO 6308 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-08 16:52:56.914  INFO 6308 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-08 16:52:56.914  INFO 6308 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 2.355 seconds (JVM running for 3.363)
+2021-04-08 16:53:05.515  INFO 6308 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-08 16:53:05.516  INFO 6308 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-08 16:53:05.517  INFO 6308 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-08 16:53:13.666  INFO 6308 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-08 16:53:13.760  INFO 6308 --- [http-nio-8080-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-08 16:53:13.764 DEBUG 6308 --- [http-nio-8080-exec-9] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-08 16:53:13.778 DEBUG 6308 --- [http-nio-8080-exec-9] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-08 16:53:13.790 DEBUG 6308 --- [http-nio-8080-exec-9] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-08 16:53:16.767 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 16:53:16.768 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 16:53:16.769 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 16:53:16.771 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 16:53:16.771 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 16:53:16.773 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 16:53:16.781 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 16:53:16.781 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 16:53:16.782 DEBUG 6308 --- [http-nio-8080-exec-4] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 16:53:24.039 DEBUG 6308 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:24.039 DEBUG 6308 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %%(String)
+2021-04-08 16:53:24.039 DEBUG 6308 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:28.319 DEBUG 6308 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:28.319 DEBUG 6308 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:28.320 DEBUG 6308 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:29.400 DEBUG 6308 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:29.400 DEBUG 6308 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:29.401 DEBUG 6308 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:29.751 DEBUG 6308 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:29.752 DEBUG 6308 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:29.752 DEBUG 6308 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:29.960 DEBUG 6308 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:29.960 DEBUG 6308 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:29.961 DEBUG 6308 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:30.200 DEBUG 6308 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:30.200 DEBUG 6308 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:30.201 DEBUG 6308 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:30.400 DEBUG 6308 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:30.400 DEBUG 6308 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:30.401 DEBUG 6308 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:30.582 DEBUG 6308 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:30.582 DEBUG 6308 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:30.584 DEBUG 6308 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:53:30.742 DEBUG 6308 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:53:30.742 DEBUG 6308 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:53:30.743 DEBUG 6308 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:55:49.397  INFO 17136 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 17136 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-08 16:55:49.397 DEBUG 17136 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-08 16:55:49.397  INFO 17136 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-08 16:55:49.431  INFO 17136 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-08 16:55:49.431  INFO 17136 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-08 16:55:50.260  INFO 17136 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-08 16:55:50.260  INFO 17136 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-08 16:55:50.260  INFO 17136 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-08 16:55:50.307  INFO 17136 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-08 16:55:50.307  INFO 17136 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 874 ms
+2021-04-08 16:55:50.636  INFO 17136 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 16:55:50.698  INFO 17136 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-08 16:55:50.927  INFO 17136 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-08 16:55:50.942  INFO 17136 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-08 16:55:50.958  INFO 17136 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 1.86 seconds (JVM running for 2.36)
+2021-04-08 16:55:54.918  INFO 17136 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-08 16:55:54.918  INFO 17136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-08 16:55:54.919  INFO 17136 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-04-08 16:55:58.611  INFO 17136 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-08 16:55:58.714  INFO 17136 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-08 16:55:58.719 DEBUG 17136 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-08 16:55:58.733 DEBUG 17136 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-08 16:55:58.744 DEBUG 17136 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-08 16:56:01.568 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 16:56:01.569 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 16:56:01.569 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 16:56:01.571 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 16:56:01.571 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 16:56:01.573 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 16:56:01.581 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 16:56:01.582 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 16:56:01.582 DEBUG 17136 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 16:56:05.453 DEBUG 17136 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:56:05.453 DEBUG 17136 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %%(String)
+2021-04-08 16:56:05.454 DEBUG 17136 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:57:44.327  INFO 6100 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 6100 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-08 16:57:44.327 DEBUG 6100 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-08 16:57:44.327  INFO 6100 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-08 16:57:44.356  INFO 6100 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-08 16:57:44.356  INFO 6100 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-08 16:57:45.187  INFO 6100 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-08 16:57:45.202  INFO 6100 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-08 16:57:45.202  INFO 6100 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-08 16:57:45.264  INFO 6100 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-08 16:57:45.264  INFO 6100 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 908 ms
+2021-04-08 16:57:45.593  INFO 6100 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 16:57:45.663  INFO 6100 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-08 16:57:45.875  INFO 6100 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-08 16:57:45.906  INFO 6100 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-08 16:57:45.906  INFO 6100 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 1.908 seconds (JVM running for 2.396)
+2021-04-08 16:57:50.676  INFO 6100 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-08 16:57:50.676  INFO 6100 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-08 16:57:50.677  INFO 6100 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-04-08 16:57:58.041  INFO 6100 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-08 16:57:58.134  INFO 6100 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-08 16:57:58.139 DEBUG 6100 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-08 16:57:58.152 DEBUG 6100 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-08 16:57:58.169 DEBUG 6100 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-08 16:58:01.608 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 16:58:01.609 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 16:58:01.610 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 16:58:01.612 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 16:58:01.612 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 16:58:01.614 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 16:58:01.622 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 16:58:01.622 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 16:58:01.623 DEBUG 6100 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 16:58:04.172 DEBUG 6100 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:58:04.173 DEBUG 6100 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 16:58:04.174 DEBUG 6100 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:58:06.360 DEBUG 6100 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:58:06.360 DEBUG 6100 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:58:06.361 DEBUG 6100 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:58:10.088 DEBUG 6100 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:58:10.089 DEBUG 6100 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %90-%(String)
+2021-04-08 16:58:10.090 DEBUG 6100 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:58:14.495 DEBUG 6100 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:58:14.495 DEBUG 6100 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %%(String)
+2021-04-08 16:58:14.496 DEBUG 6100 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:58:15.870 DEBUG 6100 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:58:15.871 DEBUG 6100 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %%(String)
+2021-04-08 16:58:15.871 DEBUG 6100 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:58:16.087 DEBUG 6100 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:58:16.088 DEBUG 6100 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %%(String)
+2021-04-08 16:58:16.088 DEBUG 6100 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:58:16.318 DEBUG 6100 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:58:16.318 DEBUG 6100 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %%(String)
+2021-04-08 16:58:16.319 DEBUG 6100 --- [http-nio-8080-exec-5] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:58:19.351 DEBUG 6100 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:58:19.352 DEBUG 6100 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:58:19.352 DEBUG 6100 --- [http-nio-8080-exec-6] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 16:58:22.326 DEBUG 6100 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 16:58:22.327 DEBUG 6100 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %123%(String)
+2021-04-08 16:58:22.328 DEBUG 6100 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 16:58:24.263 DEBUG 6100 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 16:58:24.263 DEBUG 6100 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %123%(String)
+2021-04-08 16:58:24.264 DEBUG 6100 --- [http-nio-8080-exec-9] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 17:01:45.081  INFO 11328 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 11328 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-08 17:01:45.088 DEBUG 11328 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-08 17:01:45.088  INFO 11328 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-08 17:01:45.144  INFO 11328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-08 17:01:45.144  INFO 11328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-08 17:01:46.241  INFO 11328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-08 17:01:46.241  INFO 11328 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-08 17:01:46.241  INFO 11328 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-08 17:01:46.303  INFO 11328 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-08 17:01:46.303  INFO 11328 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1159 ms
+2021-04-08 17:01:46.648  INFO 11328 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 17:01:46.709  INFO 11328 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-08 17:01:46.928  INFO 11328 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-08 17:01:46.959  INFO 11328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-08 17:01:46.959  INFO 11328 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 2.408 seconds (JVM running for 3.126)
+2021-04-08 17:01:49.820  INFO 11328 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-08 17:01:49.820  INFO 11328 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-08 17:01:49.821  INFO 11328 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-08 17:01:53.524  INFO 11328 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-08 17:01:53.620  INFO 11328 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-08 17:01:53.625 DEBUG 11328 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-08 17:01:53.639 DEBUG 11328 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-08 17:01:53.652 DEBUG 11328 --- [http-nio-8080-exec-5] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-08 17:01:54.871 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 17:01:54.871 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 17:01:54.872 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 17:01:54.874 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 17:01:54.874 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 17:01:54.876 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 17:01:54.884 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 17:01:54.884 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 17:01:54.885 DEBUG 11328 --- [http-nio-8080-exec-3] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 17:01:57.531 DEBUG 11328 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 17:01:57.531 DEBUG 11328 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 1(Long), %%(String)
+2021-04-08 17:01:57.532 DEBUG 11328 --- [http-nio-8080-exec-4] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 17:05:37.688  INFO 11352 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 11352 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-08 17:05:37.711 DEBUG 11352 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-08 17:05:37.712  INFO 11352 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-08 17:05:37.776  INFO 11352 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-08 17:05:37.792  INFO 11352 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-08 17:05:38.762  INFO 11352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-08 17:05:38.762  INFO 11352 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-08 17:05:38.762  INFO 11352 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-08 17:05:38.825  INFO 11352 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-08 17:05:38.825  INFO 11352 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1033 ms
+2021-04-08 17:05:39.157  INFO 11352 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 17:05:39.219  INFO 11352 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-08 17:05:39.430  INFO 11352 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-08 17:05:39.461  INFO 11352 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-08 17:05:39.461  INFO 11352 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 2.602 seconds (JVM running for 3.472)
+2021-04-08 17:05:43.560  INFO 11352 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-08 17:05:43.560  INFO 11352 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-08 17:05:43.561  INFO 11352 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-08 17:05:47.546  INFO 11352 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-08 17:05:47.646  INFO 11352 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-08 17:05:47.651 DEBUG 11352 --- [http-nio-8080-exec-6] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-08 17:05:47.664 DEBUG 11352 --- [http-nio-8080-exec-6] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-08 17:05:47.676 DEBUG 11352 --- [http-nio-8080-exec-6] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-08 17:05:48.874 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-08 17:05:48.874 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-08 17:05:48.878 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-08 17:05:48.880 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-08 17:05:48.880 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-08 17:05:48.881 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 1
+2021-04-08 17:05:48.890 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-08 17:05:48.890 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-08 17:05:48.891 DEBUG 11352 --- [http-nio-8080-exec-2] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-08 17:05:50.390 DEBUG 11352 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.title like ?
+2021-04-08 17:05:50.390 DEBUG 11352 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: %%(String)
+2021-04-08 17:05:50.391 DEBUG 11352 --- [http-nio-8080-exec-10] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 17:05:52.279 DEBUG 11352 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 17:05:52.279 DEBUG 11352 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 74(Long), %%(String)
+2021-04-08 17:05:52.390 DEBUG 11352 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 17:05:53.263 DEBUG 11352 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 17:05:53.263 DEBUG 11352 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 74(Long), %%(String)
+2021-04-08 17:05:53.264 DEBUG 11352 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1
+2021-04-08 17:05:55.982 DEBUG 11352 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 17:05:55.983 DEBUG 11352 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 74(Long), %测试%(String)
+2021-04-08 17:05:55.984 DEBUG 11352 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 0
+2021-04-08 17:05:58.639 DEBUG 11352 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==>  Preparing: select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t WHERE b.type_id = t.id and b.type_id = ? and b.title like ?
+2021-04-08 17:05:58.639 DEBUG 11352 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : ==> Parameters: 74(Long), %%(String)
+2021-04-08 17:05:58.640 DEBUG 11352 --- [http-nio-8080-exec-2] c.lxd.dao.BlogDao.findByTitleAndTypeId   : <==      Total: 1

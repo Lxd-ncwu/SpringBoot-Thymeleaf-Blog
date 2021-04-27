@@ -1,0 +1,1068 @@
+2021-04-11 10:40:52.311  INFO 9528 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 9528 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-11 10:40:52.311 DEBUG 9528 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-11 10:40:52.311  INFO 9528 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-11 10:40:52.353  INFO 9528 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-11 10:40:52.353  INFO 9528 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-11 10:40:54.099  INFO 9528 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-11 10:40:54.115  INFO 9528 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-11 10:40:54.115  INFO 9528 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-11 10:40:54.162  INFO 9528 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-11 10:40:54.162  INFO 9528 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1805 ms
+2021-04-11 10:40:54.587  INFO 9528 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 10:40:54.649  INFO 9528 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-11 10:40:55.419  INFO 9528 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-11 10:40:55.450  INFO 9528 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-11 10:40:55.450  INFO 9528 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 3.547 seconds (JVM running for 4.3)
+2021-04-11 10:41:19.983  INFO 9528 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 10:41:19.983  INFO 9528 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 10:41:19.983  INFO 9528 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-04-11 10:41:20.015  INFO 9528 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 10:41:20.030  INFO 9528 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-11 10:41:20.145  INFO 9528 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-11 10:41:20.176 DEBUG 9528 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 10:41:20.176 DEBUG 9528 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 10:41:20.192 DEBUG 9528 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 10:41:20.192 DEBUG 9528 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 10:41:20.192 DEBUG 9528 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 10:41:20.207 DEBUG 9528 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 10:41:20.207 DEBUG 9528 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 10:41:20.207 DEBUG 9528 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 10:41:20.207 DEBUG 9528 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 10:41:20.207  INFO 9528 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 10:41:23.307  INFO 9528 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/76', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[76, {}]}
+2021-04-11 10:41:23.309 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 10:41:23.309 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 76(Long)
+2021-04-11 10:41:23.311 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 10:41:23.338 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 10:41:23.338 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 76(Long)
+2021-04-11 10:41:23.455 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 10:41:23.456 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 10:41:23.456 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 76(Long), 76(Long), 76(Long)
+2021-04-11 10:41:23.659 DEBUG 9528 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 10:41:23.659  INFO 9528 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 10:41:23.677 ERROR 9528 --- [http-nio-8080-exec-3] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-3] Exception processing template "blog": An error happened during template parsing (template: "class path resource [templates/blog.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "dates.format(blog.updateTime,'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "dates.format(blog.updateTime,'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method format(java.util.Date,java.lang.String) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 69 common frames omitted
+
+2021-04-11 10:41:23.679 ERROR 9528 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method format(java.util.Date,java.lang.String) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+2021-04-11 10:43:28.412  INFO 9528 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 10:43:28.413 DEBUG 9528 --- [http-nio-8080-exec-3] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 10:43:28.414 DEBUG 9528 --- [http-nio-8080-exec-3] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 10:43:28.414 DEBUG 9528 --- [http-nio-8080-exec-3] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 10:43:28.414 DEBUG 9528 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 10:43:28.415 DEBUG 9528 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 10:43:28.417 DEBUG 9528 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 10:43:28.417 DEBUG 9528 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 10:43:28.417 DEBUG 9528 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 10:43:28.419 DEBUG 9528 --- [http-nio-8080-exec-3] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 10:43:28.419  INFO 9528 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 10:43:31.062  INFO 9528 --- [http-nio-8080-exec-8] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/76', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[76, {}]}
+2021-04-11 10:43:31.062 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 10:43:31.063 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 76(Long)
+2021-04-11 10:43:31.065 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 10:43:31.066 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 10:43:31.067 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 76(Long)
+2021-04-11 10:43:31.290 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 10:43:31.291 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 10:43:31.292 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 76(Long), 76(Long), 76(Long)
+2021-04-11 10:43:31.434 DEBUG 9528 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 10:43:31.434  INFO 9528 --- [http-nio-8080-exec-8] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 10:43:31.436 ERROR 9528 --- [http-nio-8080-exec-8] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-8] Exception processing template "blog": An error happened during template parsing (template: "class path resource [templates/blog.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "dates.format(blog.updateTime,'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "dates.format(blog.updateTime,'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method format(java.util.Date,java.lang.String) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 69 common frames omitted
+
+2021-04-11 10:43:31.437 ERROR 9528 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method format(java.util.Date,java.lang.String) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+2021-04-11 10:50:56.913  INFO 9528 --- [http-nio-8080-exec-8] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 10:50:56.915 DEBUG 9528 --- [http-nio-8080-exec-8] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 10:50:56.916 DEBUG 9528 --- [http-nio-8080-exec-8] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 10:50:56.917 DEBUG 9528 --- [http-nio-8080-exec-8] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 10:50:56.917 DEBUG 9528 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 10:50:56.917 DEBUG 9528 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 10:50:56.919 DEBUG 9528 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 10:50:56.920 DEBUG 9528 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 10:50:56.921 DEBUG 9528 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 10:50:56.922 DEBUG 9528 --- [http-nio-8080-exec-8] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 10:50:56.922  INFO 9528 --- [http-nio-8080-exec-8] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 10:50:59.400  INFO 9528 --- [http-nio-8080-exec-9] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/75', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[75, {}]}
+2021-04-11 10:50:59.401 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 10:50:59.402 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 75(Long)
+2021-04-11 10:50:59.403 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 10:50:59.406 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 10:50:59.406 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 75(Long)
+2021-04-11 10:50:59.514 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 10:50:59.514 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 10:50:59.514 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 75(Long), 75(Long), 75(Long)
+2021-04-11 10:50:59.530 DEBUG 9528 --- [http-nio-8080-exec-9] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 10:50:59.530  INFO 9528 --- [http-nio-8080-exec-9] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 10:50:59.533 ERROR 9528 --- [http-nio-8080-exec-9] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-9] Exception processing template "blog": An error happened during template parsing (template: "class path resource [templates/blog.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "dates.format(blog.updateTime,'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "dates.format(blog.updateTime,'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method format(java.util.Date,java.lang.String) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	... 69 common frames omitted
+
+2021-04-11 10:50:59.533 ERROR 9528 --- [http-nio-8080-exec-9] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")] with root cause
+
+org.springframework.expression.spel.SpelEvaluationException: EL1011E: Method call: Attempted to call method format(java.util.Date,java.lang.String) on null context object
+	at org.springframework.expression.spel.ast.MethodReference.throwIfNotNullSafe(MethodReference.java:154)
+	at org.springframework.expression.spel.ast.MethodReference.getValueRef(MethodReference.java:83)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueRef(CompoundExpression.java:70)
+	at org.springframework.expression.spel.ast.CompoundExpression.getValueInternal(CompoundExpression.java:91)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:112)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:337)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:265)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+2021-04-11 10:53:47.175  INFO 9552 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 9552 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-11 10:53:47.175 DEBUG 9552 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-11 10:53:47.175  INFO 9552 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-11 10:53:47.209  INFO 9552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-11 10:53:47.209  INFO 9552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-11 10:53:48.055  INFO 9552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-11 10:53:48.055  INFO 9552 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-11 10:53:48.055  INFO 9552 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-11 10:53:48.102  INFO 9552 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-11 10:53:48.102  INFO 9552 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 893 ms
+2021-04-11 10:53:48.477  INFO 9552 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 10:53:48.557  INFO 9552 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-11 10:53:48.777  INFO 9552 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-11 10:53:48.793  INFO 9552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-11 10:53:48.808  INFO 9552 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 1.923 seconds (JVM running for 2.568)
+2021-04-11 10:54:17.515  INFO 9552 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 10:54:17.515  INFO 9552 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 10:54:17.516  INFO 9552 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-11 10:54:17.541  INFO 9552 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 10:54:17.554  INFO 9552 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-11 10:54:17.639  INFO 9552 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-11 10:54:17.664 DEBUG 9552 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 10:54:17.678 DEBUG 9552 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 10:54:17.689 DEBUG 9552 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 10:54:17.691 DEBUG 9552 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 10:54:17.692 DEBUG 9552 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 10:54:17.694 DEBUG 9552 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 10:54:17.695 DEBUG 9552 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 10:54:17.695 DEBUG 9552 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 10:54:17.697 DEBUG 9552 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 10:54:17.698  INFO 9552 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 10:54:19.125  INFO 9552 --- [http-nio-8080-exec-6] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/76', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[76, {}]}
+2021-04-11 10:54:19.127 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 10:54:19.128 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 76(Long)
+2021-04-11 10:54:19.129 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 10:54:19.155 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 10:54:19.155 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 76(Long)
+2021-04-11 10:54:19.264 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 10:54:19.264 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 10:54:19.264 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 76(Long), 76(Long), 76(Long)
+2021-04-11 10:54:19.280 DEBUG 9552 --- [http-nio-8080-exec-6] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 10:54:19.281  INFO 9552 --- [http-nio-8080-exec-6] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 10:54:19.299 ERROR 9552 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "blog": An error happened during template parsing (template: "class path resource [templates/blog.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+Caused by: org.attoparser.ParseException: Exception evaluating SpringEL expression: "#dates.format(${blog.updateTime},'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 48 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating SpringEL expression: "#dates.format(${blog.updateTime},'yyyy-MM-dd')" (template: "blog" - line 66, col 49)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:292)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 50 common frames omitted
+Caused by: org.springframework.expression.spel.SpelParseException: Expression [#dates.format(${blog.updateTime},'yyyy-MM-dd')] @15: EL1043E: Unexpected token. Expected 'rparen())' but was 'lcurly({)'
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.internalException(InternalSpelExpressionParser.java:1041)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatToken(InternalSpelExpressionParser.java:923)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.maybeEatMethodArgs(InternalSpelExpressionParser.java:442)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.maybeEatMethodOrProperty(InternalSpelExpressionParser.java:760)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatDottedNode(InternalSpelExpressionParser.java:397)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatNode(InternalSpelExpressionParser.java:371)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatPrimaryExpression(InternalSpelExpressionParser.java:352)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatUnaryExpression(InternalSpelExpressionParser.java:344)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatPowerIncDecExpression(InternalSpelExpressionParser.java:303)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatProductExpression(InternalSpelExpressionParser.java:281)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatSumExpression(InternalSpelExpressionParser.java:263)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatRelationalExpression(InternalSpelExpressionParser.java:218)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatLogicalAndExpression(InternalSpelExpressionParser.java:205)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatLogicalOrExpression(InternalSpelExpressionParser.java:192)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatExpression(InternalSpelExpressionParser.java:153)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.doParseExpression(InternalSpelExpressionParser.java:131)
+	at org.springframework.expression.spel.standard.SpelExpressionParser.doParseExpression(SpelExpressionParser.java:61)
+	at org.springframework.expression.spel.standard.SpelExpressionParser.doParseExpression(SpelExpressionParser.java:33)
+	at org.springframework.expression.common.TemplateAwareExpressionParser.parseExpression(TemplateAwareExpressionParser.java:52)
+	at org.springframework.expression.common.TemplateAwareExpressionParser.parseExpression(TemplateAwareExpressionParser.java:43)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.getExpression(SPELVariableExpressionEvaluator.java:374)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.obtainComputedSpelExpression(SPELVariableExpressionEvaluator.java:315)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:182)
+	... 69 common frames omitted
+
+2021-04-11 10:54:19.301 ERROR 9552 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/blog.html]")] with root cause
+
+org.springframework.expression.spel.SpelParseException: Expression [#dates.format(${blog.updateTime},'yyyy-MM-dd')] @15: EL1043E: Unexpected token. Expected 'rparen())' but was 'lcurly({)'
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.internalException(InternalSpelExpressionParser.java:1041)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatToken(InternalSpelExpressionParser.java:923)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.maybeEatMethodArgs(InternalSpelExpressionParser.java:442)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.maybeEatMethodOrProperty(InternalSpelExpressionParser.java:760)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatDottedNode(InternalSpelExpressionParser.java:397)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatNode(InternalSpelExpressionParser.java:371)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatPrimaryExpression(InternalSpelExpressionParser.java:352)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatUnaryExpression(InternalSpelExpressionParser.java:344)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatPowerIncDecExpression(InternalSpelExpressionParser.java:303)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatProductExpression(InternalSpelExpressionParser.java:281)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatSumExpression(InternalSpelExpressionParser.java:263)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatRelationalExpression(InternalSpelExpressionParser.java:218)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatLogicalAndExpression(InternalSpelExpressionParser.java:205)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatLogicalOrExpression(InternalSpelExpressionParser.java:192)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.eatExpression(InternalSpelExpressionParser.java:153)
+	at org.springframework.expression.spel.standard.InternalSpelExpressionParser.doParseExpression(InternalSpelExpressionParser.java:131)
+	at org.springframework.expression.spel.standard.SpelExpressionParser.doParseExpression(SpelExpressionParser.java:61)
+	at org.springframework.expression.spel.standard.SpelExpressionParser.doParseExpression(SpelExpressionParser.java:33)
+	at org.springframework.expression.common.TemplateAwareExpressionParser.parseExpression(TemplateAwareExpressionParser.java:52)
+	at org.springframework.expression.common.TemplateAwareExpressionParser.parseExpression(TemplateAwareExpressionParser.java:43)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.getExpression(SPELVariableExpressionEvaluator.java:374)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.obtainComputedSpelExpression(SPELVariableExpressionEvaluator.java:315)
+	at org.thymeleaf.spring5.expression.SPELVariableExpressionEvaluator.evaluate(SPELVariableExpressionEvaluator.java:182)
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166)
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109)
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1393)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1138)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1077)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:962)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:143)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:374)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:893)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1707)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+
+2021-04-11 10:55:55.385  INFO 16148 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 16148 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-11 10:55:55.385 DEBUG 16148 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-11 10:55:55.385  INFO 16148 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-11 10:55:55.423  INFO 16148 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-11 10:55:55.423  INFO 16148 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-11 10:55:56.267  INFO 16148 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-11 10:55:56.283  INFO 16148 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-11 10:55:56.283  INFO 16148 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-11 10:55:56.330  INFO 16148 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-11 10:55:56.330  INFO 16148 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 907 ms
+2021-04-11 10:55:56.711  INFO 16148 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 10:55:56.773  INFO 16148 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-11 10:55:56.999  INFO 16148 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-11 10:55:57.030  INFO 16148 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-11 10:55:57.030  INFO 16148 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 1.964 seconds (JVM running for 2.633)
+2021-04-11 10:56:00.331  INFO 16148 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 10:56:00.331  INFO 16148 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 10:56:00.332  INFO 16148 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-11 10:56:00.356  INFO 16148 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 10:56:00.370  INFO 16148 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-11 10:56:00.491  INFO 16148 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-11 10:56:00.519 DEBUG 16148 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 10:56:00.533 DEBUG 16148 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 10:56:00.545 DEBUG 16148 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 10:56:00.547 DEBUG 16148 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 10:56:00.548 DEBUG 16148 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 10:56:00.550 DEBUG 16148 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 10:56:00.551 DEBUG 16148 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 10:56:00.551 DEBUG 16148 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 10:56:00.554 DEBUG 16148 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 10:56:00.555  INFO 16148 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 10:56:03.581  INFO 16148 --- [http-nio-8080-exec-5] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/75', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[75, {}]}
+2021-04-11 10:56:03.583 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 10:56:03.584 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 75(Long)
+2021-04-11 10:56:03.586 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 10:56:03.615 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 10:56:03.615 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 75(Long)
+2021-04-11 10:56:03.637 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 10:56:03.638 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 10:56:03.638 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 75(Long), 75(Long), 75(Long)
+2021-04-11 10:56:03.654 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 10:56:03.654  INFO 16148 --- [http-nio-8080-exec-5] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 10:56:29.792  INFO 16148 --- [http-nio-8080-exec-7] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/76', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[76, {}]}
+2021-04-11 10:56:29.793 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 10:56:29.794 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 76(Long)
+2021-04-11 10:56:29.796 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 10:56:29.798 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 10:56:29.798 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 76(Long)
+2021-04-11 10:56:29.900 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 10:56:29.900 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 10:56:29.900 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 76(Long), 76(Long), 76(Long)
+2021-04-11 10:56:29.917 DEBUG 16148 --- [http-nio-8080-exec-7] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 10:56:29.917  INFO 16148 --- [http-nio-8080-exec-7] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 11:00:43.076  INFO 16148 --- [http-nio-8080-exec-8] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/75', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[75, {}]}
+2021-04-11 11:00:43.077 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 11:00:43.078 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 75(Long)
+2021-04-11 11:00:43.081 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 11:00:43.082 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 11:00:43.083 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 75(Long)
+2021-04-11 11:00:43.157 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 11:00:43.157 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 11:00:43.158 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 75(Long), 75(Long), 75(Long)
+2021-04-11 11:00:43.228 DEBUG 16148 --- [http-nio-8080-exec-8] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 11:00:43.228  INFO 16148 --- [http-nio-8080-exec-8] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 11:05:33.945  INFO 16148 --- [http-nio-8080-exec-7] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 11:05:33.948 DEBUG 16148 --- [http-nio-8080-exec-7] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 11:05:33.949 DEBUG 16148 --- [http-nio-8080-exec-7] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 11:05:33.950 DEBUG 16148 --- [http-nio-8080-exec-7] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 11:05:33.951 DEBUG 16148 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 11:05:33.951 DEBUG 16148 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 11:05:33.952 DEBUG 16148 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 11:05:33.953 DEBUG 16148 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 11:05:33.953 DEBUG 16148 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 11:05:33.954 DEBUG 16148 --- [http-nio-8080-exec-7] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 11:05:33.954  INFO 16148 --- [http-nio-8080-exec-7] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 11:05:52.360  INFO 16148 --- [http-nio-8080-exec-10] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/76', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[76, {}]}
+2021-04-11 11:05:52.362 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 11:05:52.363 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 76(Long)
+2021-04-11 11:05:52.365 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 11:05:52.366 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 11:05:52.367 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 76(Long)
+2021-04-11 11:05:52.482 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 11:05:52.482 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 11:05:52.483 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 76(Long), 76(Long), 76(Long)
+2021-04-11 11:05:52.553 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 11:05:52.554  INFO 16148 --- [http-nio-8080-exec-10] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 11:06:34.791 DEBUG 16148 --- [http-nio-8080-exec-3] c.l.d.UserDao.findByUserNameAndPassword  : ==>  Preparing: select * from myblog.t_user where username = ? and password = ?
+2021-04-11 11:06:34.791 DEBUG 16148 --- [http-nio-8080-exec-3] c.l.d.UserDao.findByUserNameAndPassword  : ==> Parameters: root(String), e10adc3949ba59abbe56e057f20f883e(String)
+2021-04-11 11:06:34.793 DEBUG 16148 --- [http-nio-8080-exec-3] c.l.d.UserDao.findByUserNameAndPassword  : <==      Total: 1
+2021-04-11 11:06:36.379 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id
+2021-04-11 11:06:36.380 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.findAllBlog_COUNT    : ==> Parameters: 
+2021-04-11 11:06:36.380 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.findAllBlog_COUNT    : <==      Total: 1
+2021-04-11 11:06:36.384 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.findAllBlog          : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id, t.name FROM t_blog b LEFT OUTER JOIN t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2021-04-11 11:06:36.384 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.findAllBlog          : ==> Parameters: 10(Integer)
+2021-04-11 11:06:36.386 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.BlogDao.findAllBlog          : <==      Total: 4
+2021-04-11 11:06:36.393 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-11 11:06:36.393 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-11 11:06:36.394 DEBUG 16148 --- [http-nio-8080-exec-5] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-11 11:06:37.510 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.TypeDao.getAllType           : ==>  Preparing: select * from t_type
+2021-04-11 11:06:37.510 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.TypeDao.getAllType           : ==> Parameters: 
+2021-04-11 11:06:37.511 DEBUG 16148 --- [http-nio-8080-exec-10] com.lxd.dao.TypeDao.getAllType           : <==      Total: 1
+2021-04-11 12:19:52.180  INFO 16148 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/75', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[75, {}]}
+2021-04-11 12:19:52.182 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 12:19:52.183 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 75(Long)
+2021-04-11 12:19:52.185 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 12:19:52.186 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 12:19:52.186 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 75(Long)
+2021-04-11 12:19:52.530 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 12:19:52.530 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 12:19:52.530 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 75(Long), 75(Long), 75(Long)
+2021-04-11 12:19:52.559 DEBUG 16148 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 12:19:52.559  INFO 16148 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 15:10:15.069  WARN 16148 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h20m12s683ms839µs200ns).
+2021-04-11 18:27:20.852  WARN 16148 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m32s876ms59µs300ns).
+2021-04-11 19:16:28.677  WARN 16148 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m7s256ms301µs900ns).
+2021-04-11 20:10:18.118  INFO 16540 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 16540 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-11 20:10:18.120 DEBUG 16540 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-11 20:10:18.120  INFO 16540 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-11 20:10:18.151  INFO 16540 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-11 20:10:18.152  INFO 16540 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-11 20:10:19.683  INFO 16540 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-11 20:10:19.690  INFO 16540 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-11 20:10:19.690  INFO 16540 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-11 20:10:19.748  INFO 16540 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-11 20:10:19.754  INFO 16540 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1601 ms
+2021-04-11 20:10:20.278  INFO 16540 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 20:10:20.356  INFO 16540 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-11 20:10:20.595  INFO 16540 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-11 20:10:20.624  INFO 16540 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-11 20:10:20.633  INFO 16540 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 2.839 seconds (JVM running for 3.367)
+2021-04-11 20:10:26.838  INFO 16540 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 20:10:26.838  INFO 16540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 20:10:26.839  INFO 16540 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-04-11 20:10:26.871  INFO 16540 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 20:10:26.884  INFO 16540 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-11 20:10:26.977  INFO 16540 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-11 20:10:27.002 DEBUG 16540 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 20:10:27.015 DEBUG 16540 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 20:10:27.033 DEBUG 16540 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 20:10:27.034 DEBUG 16540 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 20:10:27.035 DEBUG 16540 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 20:10:27.037 DEBUG 16540 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 20:10:27.038 DEBUG 16540 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 20:10:27.038 DEBUG 16540 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 20:10:27.041 DEBUG 16540 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 20:10:27.042  INFO 16540 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 20:10:33.663  INFO 16540 --- [http-nio-8080-exec-10] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/73', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[73, {}]}
+2021-04-11 20:10:33.665 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 20:10:33.666 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 73(Long)
+2021-04-11 20:10:33.667 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 20:10:33.694 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 20:10:33.694 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 73(Long)
+2021-04-11 20:10:33.794 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 20:10:33.795 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 20:10:33.795 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 73(Long), 73(Long), 73(Long)
+2021-04-11 20:10:33.872 DEBUG 16540 --- [http-nio-8080-exec-10] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 20:10:33.873  INFO 16540 --- [http-nio-8080-exec-10] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 20:10:45.347  INFO 16540 --- [http-nio-8080-exec-2] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/74', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[74, {}]}
+2021-04-11 20:10:45.348 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 20:10:45.349 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 74(Long)
+2021-04-11 20:10:45.350 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 20:10:45.351 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 20:10:45.351 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 74(Long)
+2021-04-11 20:10:45.390 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 20:10:45.390 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 20:10:45.390 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 74(Long), 74(Long), 74(Long)
+2021-04-11 20:10:45.406 DEBUG 16540 --- [http-nio-8080-exec-2] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 20:10:45.407  INFO 16540 --- [http-nio-8080-exec-2] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 20:14:47.328  INFO 16540 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/74', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[74, {}]}
+2021-04-11 20:14:47.329 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 20:14:47.330 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 74(Long)
+2021-04-11 20:14:47.332 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 20:14:47.334 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 20:14:47.334 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 74(Long)
+2021-04-11 20:14:47.441 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 20:14:47.441 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 20:14:47.442 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 74(Long), 74(Long), 74(Long)
+2021-04-11 20:14:47.458 DEBUG 16540 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 20:14:47.458  INFO 16540 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 21:46:28.097  INFO 18444 --- [restartedMain] com.lxd.BlogLxdApplication               : Starting BlogLxdApplication using Java 15.0.1 on LXD的Y7000 with PID 18444 (F:\blog-lxd\target\classes started by 123 in F:\blog-lxd)
+2021-04-11 21:46:28.098 DEBUG 18444 --- [restartedMain] com.lxd.BlogLxdApplication               : Running with Spring Boot v2.4.4, Spring v5.3.5
+2021-04-11 21:46:28.098  INFO 18444 --- [restartedMain] com.lxd.BlogLxdApplication               : The following profiles are active: dev
+2021-04-11 21:46:28.125  INFO 18444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-04-11 21:46:28.125  INFO 18444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-04-11 21:46:29.040  INFO 18444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-04-11 21:46:29.046  INFO 18444 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-11 21:46:29.047  INFO 18444 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+2021-04-11 21:46:29.095  INFO 18444 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-11 21:46:29.096  INFO 18444 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 970 ms
+2021-04-11 21:46:29.523  INFO 18444 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 21:46:29.593  INFO 18444 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-04-11 21:46:29.891  INFO 18444 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-04-11 21:46:29.931  INFO 18444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-11 21:46:29.943  INFO 18444 --- [restartedMain] com.lxd.BlogLxdApplication               : Started BlogLxdApplication in 2.181 seconds (JVM running for 2.947)
+2021-04-11 21:46:47.856  INFO 18444 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-04-11 21:46:47.856  INFO 18444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-04-11 21:46:47.857  INFO 18444 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-04-11 21:46:47.878  INFO 18444 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.index', args=[{}, 1, {}]}
+2021-04-11 21:46:47.892  INFO 18444 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-04-11 21:46:47.992  INFO 18444 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-04-11 21:46:48.020 DEBUG 18444 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==>  Preparing: SELECT count(0) FROM t_blog b, t_type t, t_user u WHERE b.type_id = t.id AND u.id = b.user_id
+2021-04-11 21:46:48.034 DEBUG 18444 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : ==> Parameters: 
+2021-04-11 21:46:48.051 DEBUG 18444 --- [http-nio-8080-exec-1] c.l.d.B.findAllFirstPageBlog_COUNT       : <==      Total: 1
+2021-04-11 21:46:48.053 DEBUG 18444 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==>  Preparing: select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar from t_blog b , t_type t , t_user u where b.type_id = t.id and u.id = b.user_id order by b.create_time desc LIMIT ?
+2021-04-11 21:46:48.053 DEBUG 18444 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : ==> Parameters: 10(Integer)
+2021-04-11 21:46:48.057 DEBUG 18444 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllFirstPageBlog   : <==      Total: 4
+2021-04-11 21:46:48.057 DEBUG 18444 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==>  Preparing: select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+2021-04-11 21:46:48.058 DEBUG 18444 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : ==> Parameters: 
+2021-04-11 21:46:48.061 DEBUG 18444 --- [http-nio-8080-exec-1] c.lxd.dao.BlogDao.findAllRecommendBlog   : <==      Total: 2
+2021-04-11 21:46:48.062  INFO 18444 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Result : index
+2021-04-11 21:49:56.492  INFO 18444 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/75', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[75, {}]}
+2021-04-11 21:49:56.496 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 21:49:56.496 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 75(Long)
+2021-04-11 21:49:56.498 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 21:49:56.537 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 21:49:56.538 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 75(Long)
+2021-04-11 21:49:56.645 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 21:49:56.645 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 21:49:56.646 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 75(Long), 75(Long), 75(Long)
+2021-04-11 21:49:56.661 DEBUG 18444 --- [http-nio-8080-exec-3] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 21:49:56.661  INFO 18444 --- [http-nio-8080-exec-3] com.lxd.aspect.LogAspect                 : Result : blog
+2021-04-11 21:50:00.910  INFO 18444 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Request : RequestLog{url='http://localhost:8080/blog/75', ip='0:0:0:0:0:0:0:1', method='com.lxd.controller.IndexController.blog', args=[75, {}]}
+2021-04-11 21:50:00.911 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getDetailBlog        : ==>  Preparing: select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name from myblog.t_blog b,myblog.t_user u, myblog.t_type t where b.user_id = u.id and b.type_id = t.id and b.id = ?
+2021-04-11 21:50:00.911 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getDetailBlog        : ==> Parameters: 75(Long)
+2021-04-11 21:50:00.913 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getDetailBlog        : <==      Total: 1
+2021-04-11 21:50:00.914 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.updateViews          : ==>  Preparing: update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = ?
+2021-04-11 21:50:00.915 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.updateViews          : ==> Parameters: 75(Long)
+2021-04-11 21:50:00.931 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.updateViews          : <==    Updates: 1
+2021-04-11 21:50:00.932 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getCommentCountById  : ==>  Preparing: update t_blog b set b.comment_count = ( select count(*) from t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2021-04-11 21:50:00.932 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getCommentCountById  : ==> Parameters: 75(Long), 75(Long), 75(Long)
+2021-04-11 21:50:00.949 DEBUG 18444 --- [http-nio-8080-exec-1] com.lxd.dao.BlogDao.getCommentCountById  : <==    Updates: 1
+2021-04-11 21:50:00.949  INFO 18444 --- [http-nio-8080-exec-1] com.lxd.aspect.LogAspect                 : Result : blog

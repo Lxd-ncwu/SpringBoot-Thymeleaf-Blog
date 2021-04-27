@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxd.dao.UserDao">
+    <!--查询用户名和密码-->
+    <select id="findByUserNameAndPassword" resultType="com.lxd.pojo.User">
+        select * from myblog.t_user where username = #{username} and password = #{password}
+    </select>
+
+    <!--新建用户-->
+    <insert id="saveUser" parameterType="com.lxd.pojo.User">
+        insert into t_user (username,password,nickname,create_time)
+        values (#{username},#{password},#{nickname},#{createTime});
+    </insert>
+
+    <!--根据username查询-->
+    <select id="findByUsername" resultType="com.lxd.pojo.User">
+        select * from t_user where username = #{username}
+    </select>
+
+    <!--根据nickname查询-->
+    <select id="findByNickname" resultType="com.lxd.pojo.User">
+        select * from t_user where nickname = #{nickname}
+    </select>
+</mapper>

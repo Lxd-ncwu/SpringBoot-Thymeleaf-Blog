@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+
+    <link href="../static/images/me.jpg" th:href="@{/images/favicon1.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+
+</head>
+<body>
+
+<!--导航-->
+<nav id="nav" class="gird-header" style="display: none">
+    <div th:insert="~{commons::top}"></div>
+</nav>
+
+
+
+
+<!--顶部图片-->
+<div class="m-bg-class_outer" style="width: 100%;height: 100%">
+    <img src="../../static/images/bjt.jpg" th:src="@{/images/background1.jpg}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover" align="center">
+
+        <div class="m-font-size-title-large" align="center">Lxd_</div>
+
+        <div class="" align="center">
+            <a href="#" class="ui tencent circular icon button"><i class="user icon"></i></a>
+            <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+            <a href="#" class="ui qq circular icon button" data-content="316392836" data-position="bottom center"><i class="qq icon"></i></a>
+            <a href="#" class="ui email circular icon button" data-content="lxd_jwj@163.com" data-position="bottom center"><i class="envelope  icon"></i></a>
+        </div>
+        <div class="ui tencent-qr flowing popup transition hidden">
+            <img src="../static/images/oneStar.jpg" th:src="@{/images/gongzong.jpg}" alt="" class="ui rounded image" style="width: 110px">
+            <div align="center">公众号</div>
+        </div>
+        <div class="ui wechat-qr flowing popup transition hidden">
+            <img src="../static/images/oneStarWechat.jpg" th:src="@{/images/LXD1.jpg}" alt="" class="ui rounded image" style="width: 110px">
+            <div align="center">微信</div>
+        </div>
+        <div class="ui qq-qr flowing popup transition hidden">
+            <img src="../static/images/qq.jpg" th:src="@{/images/qqq.jpg}" alt="" class="ui rounded image" style="width: 110px">
+            <div align="center">QQ</div>
+        </div>
+
+        <h3 class="m-font-size-text" align="center">欢迎访问Lxd_のBlog</h3>
+        <hr style="width: 30%">
+        <h5 class="m-font-size-text-init-title">“仰天大笑出门去”</h5>
+        <h5 class="m-font-size-text-init-title">“我辈岂是蓬蒿人？”</h5>
+        <div id="waypoint" class="ui m-margin-top-large" style="bottom: 0" >
+            <a href="#" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
+            <a href="#" th:href="@{/types/-1}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn" th:classappend="${n==2} ? 'active'"><i class="clone outline icon"></i>分类</a>
+            <a href="#" th:href="@{/archives}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn" th:classappend="${n==4} ? 'active'"><i class="clock icon"></i>时间轴</a>
+            <a href="#" th:href="@{/music}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn" th:classappend="${n==5} ? 'active'"><i class="music icon"></i>音乐盒</a>
+            <a href="#" th:href="@{/messages}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn" th:classappend="${n==6} ? 'active'"><i class="book icon"></i>留言板</a>
+            <a href="#" th:href="@{/picture}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn" th:classappend="${n==8} ? 'active'"><i class="image icon"></i>照片墙</a>
+            <a href="#" th:href="@{/about}" class="ui circular icon button m-opacity-small m-item item m-mobile-hide m-index-btn" th:classappend="${n==9} ? 'active'"><i class="info icon"></i>关于我</a>
+        </div>
+        <div class="hiddenDiv"></div>
+    </div>
+
+</div>
+
+
+
+<!--最新推荐-->
+<div class="ui m-padded-tb-large">
+    <div class="ui m-container-small m-opacity">
+        <div class="ui secondary segment " align="center">
+            <i class="bookmark icon"></i>最新推荐
+        </div>
+    </div>
+    <div class="ui stackable m-container-mini m-opacity grid">
+        <div class="m-margin-tb-tiny four wide column" th:each="blog:${allRecommendBlog}">
+            <a href="#" class="class_outer" target="_blank" th:href="@{/blog/{id}(id = ${blog.id})}">
+                <img src="../static/images/backimg1.jpg" alt="" class="ui rounded image" th:src="@{${blog.firstPicture}}" width="327px" height="180px">
+                <span class="class_cover" >
+                     <h4 class="m-font-size-blog-text m-margin-tb-tiny" th:text="${blog.title}">大圣，此去欲何?</h4>
+                  </span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<!--中间内容-->
+<div class="m-padded-tb-big animated fadeIn">
+    <div class="ui container">
+        <div class="ui stackable grid">
+            <!--博客内容-->
+            <div class="ui vertical segment">
+                <div class="ui m-container-small m-opacity">
+                    <div class="ui secondary segment " align="center">
+                        <i class="bookmark icon"></i>最新文章
+                    </div>
+                </div>
+                <!--博文列表-->
+                <div class="ui padded segment m-padded-tb-large m-opacity" th:each="blog:${pageInfo.list}">
+                    <div class="ui large aligned mobile reversed stackable grid">
+                        <!--博文信息-->
+                        <div class="eleven wide column ">
+                            <h3 class="ui header" ><a href="#" target="_blank" class="m-black" th:href="@{/blog/{id}(id = ${blog.id})}" th:text="${blog.title}">大圣，此去欲何?</a></h3>
+                            <p class="m-text " th:text="${blog.description}">戴上金箍，没法爱你；放下金箍，没法保护你。我知道上天不会给我第二次机会，曾经我们说好的永远，原来也仅仅只有，十二画，而已。“大圣，此去欲何?”“踏南天，碎凌霄。”“若一去不回……”“便一去不回” 其实很多时候，我们都是有机会的，最后真正放弃的，是我们自己。......</p>
+                            <div class="ui  grid">
+                                <div class="eleven wide column">
+                                    <div class="ui mini horizontal link list">
+                                        <div class="item">
+                                            <img src="../static/images/me.jpg"  alt="" class="ui avatar image" th:src="@{${blog.avatar}}">
+                                            <div class="content"><a href="#" target="_blank" class="header" th:href="@{/about}" th:text="${blog.nickname}">Lxd_</a></div>
+                                        </div>
+                                        <div class="item">
+                                            <i class="calendar icon"></i><span th:text="${#dates.format(blog.createTime,'yyyy-MM-dd')}">2020-01-01</span>
+                                        </div>
+                                        <div class="item">
+                                            <i class="eye icon"></i> <span th:text="${blog.views}">2222</span>
+                                        </div>
+                                        <div class="item">
+                                            <i class="comment outline icon"></i> <span th:text="${blog.commentCount}">2222</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right aligned five wide column">
+                                    <a href="#" target="_blank" class="ui teal basic label m-padded-tiny m-text-thin" th:text="${blog.typeName}">好文</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--博文图片-->
+                        <div class="five wide column">
+                            <a href="#" target="_blank">
+                                <img src="../static/images/backimg1.jpg" alt="" class="ui rounded image" th:src="@{${blog.firstPicture}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--分页-->
+            <div class="ui bottom attached segment m-opacity stackable grid">
+                <div class="three wide column" align="center">
+                    <a class="item" th:href="@{/(pageNum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" th:unless="${pageInfo.isFirstPage}">上一页</a>
+                </div>
+
+                <div class="ten wide column" align="center">
+                    <p> <span th:text="${pageInfo.pageNum}"></span> / <span th:text="${pageInfo.pages}"></span> </p>
+                </div>
+
+                <div class="three wide column" align="center">
+                    <a class="item" th:href="@{/(pageNum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}" th:unless="${pageInfo.isLastPage}">下一页</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--置顶图标-->
+<div class="m-padded-tb-large m-fixed m-right-bottom">
+    <a href="#" class="ui icon button"><i class="chevron up icon"></i> </a>
+</div>
+
+
+
+<br>
+<br>
+<br>
+<!--底部栏-->
+<div th:insert="~{commons::footer}"></div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+<div th:insert="~{commons::time}"></div>
+<script>
+
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-show');
+
+    });
+
+    // 显示公众号
+    $('.tencent').popup({
+        popup : $('.tencent-qr'),
+        position: 'bottom center'
+    });
+
+    // 显示微信
+    $('.wechat').popup({
+        popup : $('.wechat-qr'),
+        position: 'bottom center'
+    });
+
+    // 显示QQ
+    $('.qq').popup({
+        popup : $('.qq-qr'),
+        position: 'bottom center'
+    });
+
+    // 显示邮箱
+    $('.email').popup();
+
+    // 显示CSDN
+    $('.csdn').popup();
+
+    // 显示github
+    $('.github').popup();
+
+    // 导航栏显示
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function(direction) {
+            if (direction == 'down') {
+                $('#nav').show(500);
+            } else {
+                $('#nav').hide(500);
+            }
+            console.log('Scrolled to waypoint!  ' + direction);
+        }
+    })
+</script>
+</body>
+</html>

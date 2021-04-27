@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resources/Table.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/BlogDao.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/CommentDao.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/MessageDao.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/PictureDao.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/TypeDao.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/userDao.xml" dialect="GenericSQL" />
+  </component>
+</project>

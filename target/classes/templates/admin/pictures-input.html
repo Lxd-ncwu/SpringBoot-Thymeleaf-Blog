@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>照片新增</title>
+  <link href="../static/images/me.jpg" th:href="@{/images/favicon1.jpg}" rel="icon" type="image/x-ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<!--导航栏-->
+<div th:insert="~{admin/common::admintop}"></div>
+
+  <div class="m-padded-tb-hugex">
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" class="teal active item">新增</a>
+        <a href="#" class="item">列表</a>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-massive">
+    <div class="ui container">
+      <form action="#" method="post" class="ui form" th:action="*{id}==null ? @{/admin/pictures} : @{/admin/pictures/{id}(id=*{id})} ">
+        <input type="hidden" name="id" th:value="${picture.getId()}">
+        <div class=" field">
+          <div class="ui left labeled input m-margin-top">
+            <label class="ui teal basic label">图片名称</label>
+            <input type="text" name="picturename" placeholder="图片名称" th:value="${picture.getPicturename()}">
+          </div>
+          <div class="ui left labeled input m-margin-top">
+            <label class="ui teal basic label">时间地点</label>
+            <input type="text" name="picturetime" placeholder="时间地点" th:value="${picture.getPicturetime()}">
+          </div>
+          <div class="ui left labeled input m-margin-top">
+            <label class="ui teal basic label">图片地址</label>
+            <input type="text" name="pictureaddress" placeholder="图片地址" th:value="${picture.getPictureaddress()}">
+          </div>
+          <div class="ui left labeled input m-margin-top">
+            <label class="ui teal basic label">图片描述</label>
+            <input type="text" name="picturedescription" placeholder="图片描述" th:value="${picture.getPicturedescription()}">
+          </div>
+        </div>
+
+        <div class="ui error message"></div>
+        <!--/*/
+          <div class="ui negative message">
+            <i class="close icon"></i>
+            <div class="header">验证失败</div>
+            <p >提交信息不符合规则</p>
+          </div>
+        /*/-->
+        <div class="ui right aligned container">
+          <button type="button" class="ui button" onclick="window.history.go(-1)" >返回</button>
+          <button class="ui teal submit button">提交</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <!--底部栏-->
+<div th:insert="~{commons::footer}"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<div th:insert="~{commons::time}"></div>
+  <script>
+
+
+      // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+
+    $('.ui.form').form({
+      fields : {
+        title : {
+          identifier: 'pictureaddress',
+          rules: [{
+            type : 'empty',
+            prompt: '请输入照片地址'
+          }]
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>

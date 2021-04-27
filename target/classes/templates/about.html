@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lxd-关于我</title>
+    <link href="../static/images/me.jpg" th:href="@{/images/favicon1.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+<!--导航-->
+<nav id="nav" class="gird-header">
+    <div th:insert="~{commons::top}"></div>
+</nav>
+
+
+<!--顶部背景图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 40%">
+    <img src="../static/images/about1.jpg" th:src="@{/images/about2.jpg}" alt="" class="ui m-bg image" style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover1">
+        <div class="ui container" style="position: relative ;bottom: -540px;">
+            <div class="m-font-size-title" align="center" style="font-family:'STXingkai'">关于我</div>
+            <div class="m-font-size-text-init-title m-margin-top" align="center">天生我材必有用，千金散尽还复来</div>
+        </div>
+    </div>
+</div>
+
+<!--个人资料描述-->
+<div class="ui container m-opacity box-shadow-max">
+    <div class="ui segment m-margin-" align="center">
+        <div class="m-margin-top-large" align="center">
+            <img class="ui circular image" align="center" src="https://z3.ax1x.com/2021/04/10/cdy9jH.jpg"  style="width: 150px;height: 150px;">
+        </div>
+    <div class="m-margin-top-small" style="font-size: x-large;font-family: STSong" align="center">Lxd_</div>
+
+        <hr class="m-margin-top-small" style="width: 30%">
+        <br>
+        <div style="font-family: 华文行楷; font-size: 25px;line-height: 200%" >
+            君不见黄河之水天上来，奔流到海不复回。<br>
+            君不见高堂明镜悲白发，朝如青丝暮成雪。<br>
+            人生得意须尽欢，莫使金樽空对月。<br>
+            天生我材必有用，千金散尽还复来。<br>
+            烹羊宰牛且为乐，会须一饮三百杯。<br>
+            岑夫子，丹丘生，将进酒，杯莫停。<br>
+            与君歌一曲，请君为我倾耳听。<br>
+            钟鼓馔玉不足贵，但愿长醉不复醒。<br>
+            古来圣贤皆寂寞，惟有饮者留其名。<br>
+            陈王昔时宴平乐，斗酒十千恣欢谑。<br>
+            主人何为言少钱，径须沽取对君酌。<br>
+            五花马、千金裘，呼儿将出换美酒，与尔同销万古愁。<br>
+        </div>
+        <hr class="m-margin-top-large">
+        <br>
+    <!--<div class="hiddenDiv"></div>-->
+    </div>
+</div>
+
+  <br>
+  <br>
+
+  <!--底部栏-->
+<div th:insert="~{commons::footer}"></div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<div th:insert="~{commons::time}"></div>
+</body>
+</html>

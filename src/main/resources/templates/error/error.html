@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>错误</title>
+  <link href="../static/images/me.jpg" th:href="@{/images/favicon1.jpg}" rel="icon" type="image/x-ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+  <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+</head>
+<body>
+
+
+<br>
+<br>
+<br>
+
+<div class="m-container-small m-padded-tb-massive">
+  <div class="ui error message m-padded-tb-huge" >
+    <div class="ui contianer">
+      <h2>错误</h2>
+      <p>对不起，服务异常，请联系管理员</p>
+    </div>
+  </div>
+</div>
+<div class="m-margin-top-max" align="center">
+  <a href="#" th:href="@{/}">
+    <button type="button" class="ui teal button m-mobile-wide"><i class="home icon"></i>返回首页</button>
+  </a>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+  <div>
+    <div th:utext="'&lt;!--'" th:remove="tag"></div>
+    <div th:utext="'Failed Request URL : ' + ${url}" th:remove="tag"></div>
+    <div th:utext="'Exception message : ' + ${exception.message}" th:remove="tag"></div>
+    <ul th:remove="tag">
+      <li th:each="st : ${exception.stackTrace}" th:remove="tag"><span th:utext="${st}" th:remove="tag"></span></li>
+    </ul>
+    <div th:utext="'--&gt;'" th:remove="tag"></div>
+  </div>
+
+<!--底部栏-->
+
+<div th:insert="~{commons::footer}"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<div th:insert="~{commons::time}"></div>
+
+
+</body>
+</html>

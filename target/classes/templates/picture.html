@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lxd-照片墙</title>
+    <link href="../static/images/me.jpg" th:href="@{/images/favicon1.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <link rel="stylesheet" href="../static/lib/picture/css/jkresponsivegallery.css" th:href="@{/lib/picture/css/jkresponsivegallery.css}">
+</head>
+<body>
+
+<!--导航-->
+<nav id="nav" class="gird-header">
+    <div th:insert="~{commons::top}"></div>
+</nav>
+
+<!--顶部图片-->
+<div class="m-bg-type_outer" style="width: 100%;height: 40%">
+    <img src="../static/images/picturebg.jpg" th:src="@{/images/picture2.jpg}" alt=""   style="width: 100%;height: 100%">
+    <div class="m-bg-class_cover1">
+        <div class="ui container" style="position: relative ;bottom: -540px;">
+            <div class="m-font-size-title m-right-bottom" align="center" style="font-family:'STXingkai'">照片墙</div>
+        </div>
+    </div>
+</div>
+
+
+<!--照片墙-->
+<div id="picture-main">
+
+    <article class="thumb" th:each="picture:${pictures}">
+        <div class="ma5-gallery">
+            <div class="rthumbnail">
+                <a href="../static/images/backimg1.jpg" th:href="@{${picture.pictureaddress}}">
+                    <img class="picture-zmki_px" src="../static/images/backimg1.jpg" th:src="@{${picture.pictureaddress}}">
+                </a>
+                <div class="m-picture-text" th:text="${picture.picturename}">起风了</div>
+                <div  class="rcaption">
+                    <div style="font-size: large;" th:text="${picture.picturename}">起风了</div>
+                    <div style="font-size: small" class="m-margin-top" th:text="${picture.picturetime}">2020-02-02 &nbsp;深圳</div>
+                    <p style="font-size: small" th:text="${picture.picturedescription}">我曾难自拔于世界之大，也沉迷于其中梦话</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+</div>
+
+
+<!--底部栏-->
+<div th:insert="~{commons::footer}"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="../static/lib/picture/js/jquery.min.js" th:src="@{/lib/picture/js/jquery.min.js}"></script>
+<script src="../static/lib/picture/js/jkresponsivegallery.js" th:src="@{/lib/picture/js/jkresponsivegallery.js}"></script>
+
+
+<div th:insert="~{commons::time}"></div>
+</body>
+</html>

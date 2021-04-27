@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxd.dao.MessageDao">
+    <!--增加留言-->
+    <insert id="saveMessage" parameterType="com.lxd.pojo.Message">
+        insert into t_message(nickname,email,content,avatar,create_time,parent_message_id,admin_message)
+        values (#{nickname},#{email},#{content},#{avatar},#{createTime},#{parentMessageId},#{adminMessage})
+    </insert>
+
+    <!--删除留言-->
+    <delete id="deleteMessage" >
+        delete from t_message where id = #{id}
+    </delete>
+
+    <!--查询父级留言-->
+    <select id="findByParentIdNull" resultType="com.lxd.pojo.Message">
+        select *
+        from t_message
+        where parent_message_id = #{parentId}
+        order by create_time desc
+    </select>
+    
+    <!--查询一级回复-->
+    <select id="findByParentIdNotNull" resultType="com.lxd.pojo.Message">
+        select * from t_message
+        where parent_message_id = #{id}
+        order by create_time desc
+    </select>
+
+    <!--查询二级回复-->
+    <select id="findByReplyId" resultType="com.lxd.pojo.Message">
+        select *
+        from t_message
+        where parent_message_id = #{childId}
+        order by create_time desc
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+
+mybatis:
+  type-aliases-package: com.lxd.pojo
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+comment.avatar: /images/avatar.png
+message.avatar: /images/avatar.png

@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/myblog?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&serverTimezone=GMT%2B8
+    username: root
+    password: d000000
+
+logging:
+  level:
+    root: warn
+    com.star: info
+  file:
+    name: log/blog-pro.log
+
+comment.avatar: /images/avatar.png
+message.avatar: /images/avatar.png

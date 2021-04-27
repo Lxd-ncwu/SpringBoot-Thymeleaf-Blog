@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav class="ui inverted gird-header" th:fragment="admintop" >
+  <div class="ui container">
+    <div class="ui inverted secondary stackable menu">
+      <h2 class="ui olive header item" style="font-family: STSong">管理后台</h2>
+      <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide"><i class="home icon"></i>文章管理</a>
+      <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide"><i class="clone outline icon"></i>分类管理</a>
+      <a href="#" th:href="@{/admin/pictures}" class=" m-item item m-mobile-hide"><i class="image icon"></i>相册管理</a>
+      <div class="right m-item m-mobile-hide menu">
+        <div class="ui dropdown  item">
+          <div class="text">
+            <img class="ui avatar image" th:src="@{/images/wo.jpg}">
+            <span>Lxd</span>
+          </div>
+            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+        </div>
+        <a href="#" th:href="@{/}" class="m-item item m-mobile-hide"><i class="home icon"></i>返回主页</a>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <i class="sidebar icon"></i>
+  </a>
+</nav>
+</body>
+</html>

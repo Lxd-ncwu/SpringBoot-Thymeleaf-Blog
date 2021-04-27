@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lxd.dao.BlogDao">
+    <!--新增博客-->
+    <insert id="saveBlog" parameterType="com.lxd.vo.BlogQuery">
+        insert into t_blog (id, title, content, first_picture, flag, views, comment_count, appreciation,
+                            share_statement, commentabled, published, recommend, create_time, update_time,
+                            type_id, user_id, description)
+        values (#{id}, #{title}, #{content}, #{firstPicture}, #{flag}, #{views}, #{commentCount}, #{appreciation},
+                #{shareStatement}, #{commentabled}, #{published}, #{recommend}, #{createTime},
+                #{updateTime}, #{typeId}, #{userId}, #{description});
+    </insert>
+
+    <!--查询文章  多对一的关系 -->
+    <resultMap id="blog" type="com.lxd.vo.BlogQuery">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="recommend" column="recommend"/>
+        <result property="published" column="published"/>
+        <result property="typeId" column="type_id"/>
+        <association property="type" javaType="com.lxd.pojo.Type">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+
+    <!--查询所有博客-->
+    <select id="findAllBlog" resultMap="blog">
+        select b.id,
+               b.title,
+               b.update_time,
+               b.recommend,
+               b.published,
+               b.type_id,
+               t.id,
+               t.name
+        from t_blog b
+                 left outer join t_type t
+                                 on b.type_id = t.id
+        order by b.update_time desc
+    </select>
+
+    <!--删除博客-->
+    <delete id="deleteBlog">
+        delete
+        from t_blog
+        where id = #{id}
+    </delete>
+
+    <!--根据Id查询博客-->
+    <select id="getBlogById" resultType="com.lxd.vo.ShowBlog">
+        select b.id,
+               b.flag,
+               b.title,
+               b.content,
+               b.type_id,
+               b.first_picture,
+               b.description,
+               b.recommend,
+               b.published,
+               b.share_statement,
+               b.appreciation,
+               b.commentabled
+        from t_blog b
+        where b.id = #{id}
+    </select>
+
+    <!--更新博客-->
+    <update id="updateBlog" parameterType="com.lxd.vo.ShowBlog">
+        update t_blog
+        set published       = #{published},
+            flag            = #{flag},
+            title           = #{title},
+            content         = #{content},
+            type_id         = #{typeId},
+            first_picture   = #{firstPicture},
+            description     = #{description},
+            recommend       = #{recommend},
+            share_statement = #{shareStatement},
+            appreciation    = #{appreciation},
+            commentabled    = #{commentabled},
+            update_time     = #{updateTime}
+        where id = #{id};
+    </update>
+
+    <!--根据标题和id查询博客-->
+    <select id="findByTitleAndTypeId" parameterType="com.lxd.vo.SearchBlog" resultMap="blog">
+        <bind name="pattern" value="'%' + title + '%'"/>
+        select b.id , b.title , b.type_id , t.id , t.name from t_blog b , t_type t
+        <where>
+            <if test="1==1">
+                b.type_id = t.id
+            </if>
+            <if test="typeId!=null">
+                and b.type_id = #{typeId}
+            </if>
+            <if test="title!=null">
+                and b.title like #{pattern}
+            </if>
+        </where>
+    </select>
+
+    <!--FirstPageBlog-->
+    <resultMap id="firstPageBlog" type="com.lxd.vo.FirstPageBlog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="views" column="views"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="description" column="description"/>
+        <result property="typeName" column="name"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+    <!--查询首页最新博客-->
+    <select id="findAllFirstPageBlog" resultMap="firstPageBlog">
+        select b.id,b.title,b.first_picture,b.views,b.comment_count,b.update_time,b.description,t.name,u.nickname,u.avatar
+        from t_blog b , t_type t , t_user u
+        where b.type_id = t.id
+        and u.id = b.user_id
+        order by b.create_time desc
+    </select>
+
+    <!--查询首页推荐博客-->
+    <select id="findAllRecommendBlog" resultType="com.lxd.vo.RecommendBlog">
+        select * from t_blog where t_blog.recommend = true order by t_blog.create_time desc limit 4
+    </select>
+
+    <!--搜索文章-->
+    <select id="searchBlog" resultMap="firstPageBlog">
+        <bind name="pattern" value="'%'+query+'%'"/>
+        select b.id,b.title,b.first_picture, b.views,b.comment_count,b.update_time,b.description,
+        t.name ,
+        u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id and (b.title like #{pattern} or b.content like  #{pattern})
+        order by b.update_time desc
+    </select>
+
+    <!--统计博客总数-->
+    <select id="getBlogTotal" resultType="Integer">
+        select count(*) from t_blog
+    </select>
+
+    <!--统计访问总数-->
+    <select id="getBlogViewTotal" resultType="Integer">
+        select coalesce (sum(views),0) from myblog.t_blog
+    </select>
+
+    <!--统计评论总数-->
+    <select id="getBlogCommentTotal" resultType="Integer">
+        select count(*) from t_comment
+    </select>
+
+    <!--统计留言总数-->
+    <select id="getBlogMessageTotal" resultType="Integer">
+        select count(*) from t_message
+    </select>
+    
+    <!--封装博客详情-->
+    <resultMap id="detailBlog" type="com.lxd.vo.DetailedBlog">
+        <id property="id" column="bid"/>
+        <result property="firstPicture" column="first_picture"/>
+        <result property="flag" column="flag"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="typeName" column="name"/>
+        <result property="views" column="views"/>
+        <result property="commentCount" column="comment_count"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="commentabled" column="commentabled"/>
+        <result property="shareStatement" column="share_statement"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="nickname" column="nickname"/>
+        <result property="avatar" column="avatar"/>
+    </resultMap>
+
+    <!--博客详情查询-->
+    <select id="getDetailBlog" resultMap="detailBlog">
+        select b.id bid,b.first_picture,b.flag,b.title,b.content,b.views,b.comment_count,b.update_time,b.commentabled,b.share_statement,b.appreciation, u.nickname,u.avatar,t.name
+        from myblog.t_blog b,myblog.t_user u, myblog.t_type t
+        where b.user_id = u.id and b.type_id = t.id and b.id = #{id}
+    </select>
+
+    <!--文章访问更新自增1-->
+    <update id="updateViews" parameterType="com.lxd.pojo.Blog">
+        update t_blog set t_blog.views = t_blog.views+1 where t_blog.id = #{id}
+    </update>
+
+    <!--查询文章评论数量并更新-->
+    <update id="getCommentCountById" parameterType="com.lxd.pojo.Blog">
+        update t_blog b set b.comment_count = (
+        select count(*) from t_comment c where c.blog_id = #{id} and b.id = #{id}
+            ) where b.id = #{id}
+    </update>
+
+    <!--根据typeId查询博客-->
+    <select id="getBlogByTypeId" resultMap="firstPageBlog">
+        select b.id,b.title,b.first_picture, b.views,b.comment_count,b.update_time,b.description,
+               t.name ,
+               u.nickname, u.avatar
+        from t_blog b, t_type t,t_user u
+        where b.type_id = t.id and  u.id = b.user_id and b.type_id = #{blogId}
+        order by b.update_time desc
+    </select>
+</mapper>
