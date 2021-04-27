@@ -1,4 +1,5 @@
-#基于Spring Boot 和 Thymeleaf模板引擎的 Blog
+# 基于Spring Boot 和 Thymeleaf模板引擎的 Blog
+# 原作者Github https://github.com/oneStarLR/ 
 ----
 ## 使用方法:
 - git clone到本地
