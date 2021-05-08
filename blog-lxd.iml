@@ -38,8 +38,6 @@
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:3.4.5" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.3.5" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.5" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.5" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-devtools:2.4.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.4.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.3.5" level="project" />
@@ -111,5 +109,7 @@
     <orderEntry type="library" name="Maven: org.commonmark:commonmark:0.17.0" level="project" />
     <orderEntry type="library" name="Maven: org.commonmark:commonmark-ext-heading-anchor:0.17.0" level="project" />
     <orderEntry type="library" name="Maven: org.commonmark:commonmark-ext-gfm-tables:0.17.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.3.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.3.5" level="project" />
   </component>
 </module>
