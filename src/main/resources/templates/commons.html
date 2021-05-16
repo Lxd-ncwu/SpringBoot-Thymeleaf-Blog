@@ -25,9 +25,9 @@
                 </div>
             </form>
         </div>
-        <a href="#"  class="m-item item"><i class="info icon" style="color: green" ></i>[[${session.user} == null ? 未登录:${session.user.nickname}]]</a>
-        <a href="#" th:href="@{/toLogin}" th:if="${session.user}==null" style="float: right ; display: block" class="m-item item"><i class="pencil alternate icon" style="color: green" ></i>登录</a>
-        <a href="#" th:href="@{/logout}" style="float: right ; display: block" class="m-item item"><i class="pencil alternate icon" style="color: red"></i>登出</a>
+        <a href="#"  class="m-item item"><i class="user icon" style="color: green" ></i>[[${session.user} == null ? 未登录:${session.user.nickname}]]</a>
+        <a href="#" th:href="@{/toLogin}" th:if="${session.user}==null" style="float: right ; display: block" class="m-item item"><i class="fa-sign-in icon" style="color: green" ></i>登录</a>
+        <a href="#" th:href="@{/logout}" style="float: right ; display: block" class="m-item item"><i class="fa-sign-out icon" style="color: red"></i>登出</a>
     </div>
 </div>
 <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-hide" style="display: none">

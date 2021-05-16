@@ -1,83 +1,136 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>博客管理登录</title>
-  <link href="../static/images/me.jpg" th:href="@{/images/favicon1.jpg}" rel="icon" type="image/x-ico">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
-  <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理登录</title>
+    <link href="../static/images/me.jpg" th:href="@{/images/favicon1.jpg}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css" th:href="@{/css/me.css}">
 </head>
 <body>
 
 <br>
 <br>
 <br>
- <div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
-   <div class="ur container">
-     <div class="ui middle aligned center aligned grid">
-       <div class="column">
-         <h2 class="ui teal image header">
-           <div class="content">
-             用户注册
-           </div>
-         </h2>
-         <form class="ui large form" method="post" th:action="@{/register}">
-           <div class="ui  segment">
-             <div class="field">
-               <div class="ui left icon input">
-                 <i class="user icon"></i>
-                 <input type="text" name="nickname" placeholder="昵称">
-               </div>
-               <div class="ui left icon input">
-                 <i class="user icon"></i>
-                 <input type="text" name="username" placeholder="用户名">
-               </div>
-             </div>
-             <div class="field">
-               <div class="ui left icon input">
-                 <i class="lock icon"></i>
-                 <input type="password" name="password" placeholder="密码">
-               </div>
-             </div>
-             <button class="ui fluid large teal submit button">注   册</button>
-           </div>
-
-           <div class="ui error mini message"></div>
-           <div class="ui mini negative message" th:text="${message}"></div>
-
-         </form>
-
-       </div>
-     </div>
-   </div>
- </div>
+<div class="m-container-small m-padded-tb-massive" style="max-width: 30em !important;">
+    <div class="ur container">
+        <div class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h2 class="ui teal image header">
+                    <div class="content">
+                        用户注册
+                    </div>
+                </h2>
+                <form id="fff" name="fff" class="ui large form" method="post" th:action="@{/register}">
+                    <div class="ui  segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user green icon"></i>
+                                <input id="nickname" type="text" name="nickname" placeholder="昵称">
+                            </div>
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input id="username" type="text" name="username" placeholder="用户名">
+                            </div>
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input id="password" type="password" name="password" placeholder="密码">
+                            </div>
+                            <div>
+                                <div class="ui left icon input">
+                                    <i class="envelope icon"></i>
+                                    <input id="email" type="email" name="email" placeholder="邮箱">
+                                    <button id="barcode" type="submit" >获取验证码</button>
+                                </div>
+                            </div>
+                            <div class="ui left icon input">
+                                <i class="barcode icon"></i>
+                                <input type="text" name="barcode" placeholder="验证码">
+                            </div>
+                        </div>
+                        <button class="ui fluid large teal submit button">注 册</button>
+                    </div>
+                    <div class="ui error mini message"></div>
+                    <div class="ui mini negative message" th:text="${message}"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 
+<script type="text/javascript">
+    var waitTime = 60;
+    document.getElementById("barcode").onclick = function() {
+        time(this);
+    }
+    function time(ele) {
+        if (waitTime == 0) {
+            ele.disabled=false;
+            ele.innerHTML = "获取验证码";
+            waitTime = 60;// 恢复计时
+        } else {
+            ele.disabled=true;
+            ele.innerHTML = waitTime + "秒后可以重新发送";
+            waitTime--;
+            setTimeout(function() {
+                time(ele)// 关键处-定时循环调用
+            }, 1000)
+        }
+    }
+</script>
+
+
 
 <script>
-  $('.ui.form').form({
-    fields : {
-      username : {
-        identifier: 'username',
-        rules: [{
-          type : 'empty',
-          prompt: '请输入用户名'
-        }]
-      },
-      password : {
-        identifier: 'password',
-        rules: [{
-          type : 'empty',
-          prompt: '请输入密码'
-        }]
-      }
-    }
-  });
+    $('.ui.form').form({
+        fields: {
+            nickname: {
+                identifier: 'nickname',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入昵称'
+                }]
+            },
+            username: {
+                identifier: 'username',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入用户名'
+                }]
+            },
+            password: {
+                identifier: 'password',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入密码'
+                }]
+            },
+            email: {
+                identifier: 'email',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入邮箱'
+                }]
+            }
+        }
+    });
 </script>
+
+<script>
+    $('#barcode').click(function f(){
+        $.ajax({
+            type : "POST",
+            url : "/redis_register",
+            data : $('#fff').serialize()
+        })
+    })
+</script>
+
 
 </body>
 </html>

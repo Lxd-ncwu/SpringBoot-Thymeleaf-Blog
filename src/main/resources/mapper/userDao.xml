@@ -21,4 +21,9 @@
     <select id="findByNickname" resultType="com.lxd.pojo.User">
         select * from t_user where nickname = #{nickname}
     </select>
+
+    <!--根据邮箱查询-->
+    <select id="findByEmail" resultType="com.lxd.pojo.User">
+        select * from t_user where email = #{email}
+    </select>
 </mapper>

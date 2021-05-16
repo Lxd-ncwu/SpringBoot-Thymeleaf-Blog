@@ -7,13 +7,22 @@ spring:
   thymeleaf:
     cache: false
 
-
-
   level:
     root: info
     com.lxd: debug
+
   file:
     name: log/blog-dev.log
+
+  mail:
+    username: lxd_jwj@163.com
+    password: CWJBTBLQVHYTBRKW
+    host: smtp.163.com
+
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
 
 comment.avatar: /images/avatar.png
 message.avatar: /images/avatar.png

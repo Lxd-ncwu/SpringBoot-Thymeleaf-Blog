@@ -24,4 +24,6 @@ public interface UserDao {
 
     //根据nickname查询
     User findByNickname(String nickname);
+
+    User findByEmail(String email);
 }
