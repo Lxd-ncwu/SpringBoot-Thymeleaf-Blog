@@ -17,7 +17,7 @@
 <body>
 
 <!--导航-->
-<nav id="nav" class="gird-header">
+<nav id="nav" class="gird-header" >
   <div th:insert="~{commons::top}"></div>
 </nav>
 
@@ -599,7 +599,7 @@ h5,h6{font-size:1em;}
   }
   function setTime() {
     /*此处为网站的创建时间*/
-    var create_time = Math.round(new Date(Date.UTC(2020, 01, 25, 15, 15, 15)).getTime() / 1000);
+    var create_time = Math.round(new Date(Date.UTC(2021, 03, 15, 0, 0, 0)).getTime() / 1000);
     var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
     currentTime = secondToDate((timestamp - create_time));
     currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'

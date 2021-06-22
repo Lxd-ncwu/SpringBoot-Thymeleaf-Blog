@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -73,7 +74,7 @@ public class LogAspect {
             //获取请求参数
             Object[] args = joinPoint.getArgs();
             RequestLog requestLog = new RequestLog(url, ip, method, args);
-            logger.info("Request : {}",requestLog);
+                logger.info("Request : {}",requestLog);
         }
     }
 
