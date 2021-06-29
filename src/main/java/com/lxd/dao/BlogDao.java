@@ -38,7 +38,7 @@ public interface BlogDao {
     //查询首页最新博客
     List<FirstPageBlog> findAllFirstPageBlog();
 
-    //查询推推荐博客
+    //查询推推荐博客   
     List<RecommendBlog> findAllRecommendBlog();
 
     //搜索博客列表

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lxd.dao.BlogDao">
     <!--新增博客-->
-    <insert id="saveBlog" parameterType="com.lxd.vo.BlogQuery">
+    <insert id="saveBlog" parameterType="com.lxd.pojo.Blog">
         insert into t_blog (id, title, content, first_picture, flag, views, comment_count, appreciation,
                             share_statement, commentabled, published, recommend, create_time, update_time,
                             type_id, user_id, description)
